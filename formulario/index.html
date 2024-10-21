@@ -1,0 +1,379 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    
+    <style>
+      body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f9;
+    margin: 0;
+    padding: 20px;
+}
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    span.error {
+        color: red;
+        font-size: 12px;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    input[type="submit"], 
+    input[type="reset"], 
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover, 
+    input[type="reset"]:hover, 
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    input[type="reset"] {
+        background-color: #dc3545;
+    }
+
+    input[type="reset"]:hover {
+        background-color: #c82333;
+    }
+
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Formulario</h1>
+    </center>
+    <form id="formulario" novalidate>
+        <div class="form-group">
+            <label for="nombres">Nombre</label>
+            <input type="text" id="nombres" minlength="3" maxlength="50" required>
+            <span id="nombresError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="apellidos">Apellido</label>
+            <input type="text" id="apellidos" minlength="3" maxlength="50" required>
+            <span id="apellidosError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" maxlength="100" required>
+            <span id="emailError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" minlength="8" maxlength="20" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[#\$\\%]).{8,}" 
+            title="La contraseña debe tener entre 8 y 20 caracteres, incluyendo una letra mayúscula, una minúscula y un carácter especial">
+            <span id="passwordError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="documento">Número de documento</label>
+            <input type="text" id="documento" minlength="5" maxlength="10" required pattern="\d*" title="Solo se permiten números">
+            <span id="documentoError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="tipoDocumento">Tipo de documento</label>
+            <select id="tipoDocumento">
+                <option>Seleccione</option>
+                <option>Cédula de ciudadanía</option>
+                <option>Tarjeta de identidad</option>
+                <option>Pasaporte</option>
+            </select>
+            <span id="tipoDocumentoError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="genero">Género</label>
+            <select id="genero">
+                <option>Seleccione</option>
+                <option>Femenino</option>
+                <option>Masculino</option>
+                <option>LGBTIQ+</option>
+                <option>Prefiero no decirlo</option>
+            </select>
+            <span id="generoError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha de nacimiento</label>
+            <input type="date" id="fecha" required>
+            <span id="fechaError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label>Hobbies:</label>
+            <input type="radio" name="hobby" value="Bailar"> Bailar<br>
+            <input type="radio" name="hobby" value="Correr"> Correr<br>
+            <input type="radio" name="hobby" value="Manejar"> Manejar<br>
+            <input type="radio" name="hobby" value="Jugar Futbol"> Jugar Futbol<br>
+            <span id="hobbyError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label>Habilidades:</label>
+            <input type="checkbox" name="habilidades" value="Comunicacion"> Comunicación<br>
+            <input type="checkbox" name="habilidades" value="Liderazgo"> Liderazgo<br>
+            <input type="checkbox" name="habilidades" value="Manualidades"> Manualidades<br>
+            <input type="checkbox" name="habilidades" value="Trabajo en equipo"> Trabajo en equipo<br>
+            <input type="checkbox" name="habilidades" value="Creatividad"> Creatividad<br>
+            <span id="habilidadesError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="numero">Número de teléfono</label>
+            <input type="tel" id="numero" minlength="7" maxlength="10" pattern="\d*" title="Solo se permiten números" required>
+            <span id="numeroError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="edad">Seleccione su Edad</label>
+            <input type="range" id="edad" name="edad" min="0" max="120" value="0" required>
+            <span id="edadDisplay">0</span> años
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Enviar">
+            <input type="reset" id="limpiardatos" value="Limpiar Datos">
+        </div>
+        <div class="button-group">
+            <button id="disable">Deshabilitar Formulario</button>
+            <button id="enable" disabled>Habilitar Formulario</button>
+            <button id="editar">Editar</button>
+        </div>
+        
+    </form>
+
+    <script>
+        const formulario = document.getElementById('formulario');
+        const fechaInput = document.getElementById('fecha');
+        const edadInput = document.getElementById('edad');
+        const edadDisplay = document.getElementById('edadDisplay');
+        const LimpiardatosBtn = document.getElementById('limpiardatos')
+        const disableButton = document.getElementById('disable');
+        const enableButton = document.getElementById('enable');
+        const inputs = document.querySelectorAll('#formulario input');
+        const selects = document.querySelectorAll('#formulario select');
+        const editarButton = document.getElementById('editar');
+        const nombreInput = document.getElementById('nombres');
+        const apellidoInput = document.getElementById('apellidos');
+        const numeroInput = document.getElementById('numero');
+        const documentoInput = document.getElementById('documento');
+        const tipoDocumentoSelect = document.getElementById('tipoDocumento');
+
+        
+         // Cambiar el color de fondo del formulario en mouseout
+         formulario.addEventListener('mouseout', function() {
+            formulario.style.backgroundColor = '#e0f7fa'; // Cambia el color del fondo
+        });
+
+        // Mostrar valor inicial del slider de edad 
+        edadDisplay.textContent = edadInput.value;
+
+        // Función para calcular la edad basado en la fecha de nacimiento
+        function calcularEdad(fechaNacimiento) {
+            const hoy = new Date();
+            const nacimiento = new Date(fechaNacimiento);
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            const mes = hoy.getMonth() - nacimiento.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+                edad--;
+            }
+            return edad;
+        }
+
+        // Actualizar la edad automáticamente al seleccionar la fecha de nacimiento
+        fechaInput.addEventListener('input', function() {
+            const fechaSeleccionada = fechaInput.value;
+            if (fechaSeleccionada) {
+                const edadCalculada = calcularEdad(fechaSeleccionada);
+                if (edadCalculada >= 0 && edadCalculada <= 120) {
+                    edadInput.value = edadCalculada;
+                    edadDisplay.textContent = edadCalculada;
+                }
+            }
+        });
+
+          // Validar que la edad sea mayor a 18 años en mouseout
+          fechaInput.addEventListener('mouseout', function() {
+            const fechaSeleccionada = fechaInput.value;
+            if (fechaSeleccionada) {
+                const edadCalculada = calcularEdad(fechaSeleccionada);
+                if (edadCalculada < 18) {
+                    alert('Debe ser mayor de 18 años para registrarse.');
+                    fechaInput.value = ''; // Limpiar el campo si no cumple
+                }
+            }
+        });
+        
+        // Actualizar el valor mostrado del slider de edad cuando se mueve
+        edadInput.addEventListener('input', function() {
+            edadDisplay.textContent = edadInput.value;
+        });
+
+        // Validación del formulario
+        formulario.addEventListener('submit', function(event) {
+            // Limpiar mensajes de error previos
+            clearErrors();
+
+            // Validar cada campo manualmente
+            let hasError = false;
+
+            const nombre = document.getElementById('nombres');
+            if (nombre.value.trim() === '' || nombre.value.length < 3 || nombre.value.length > 50) {
+                document.getElementById('nombresError').textContent = 'El nombre debe tener entre 3 y 50 caracteres.';
+                hasError = true;
+            }
+
+            const apellido = document.getElementById('apellidos');
+            if (apellido.value.trim() === '' || apellido.value.length < 3 || apellido.value.length > 50) {
+                document.getElementById('apellidosError').textContent = 'El apellido debe tener entre 3 y 50 caracteres.';
+                hasError = true;
+            }
+
+            const email = document.getElementById('email');
+            if (!email.checkValidity()) {
+                document.getElementById('emailError').textContent = 'Por favor, ingrese un email válido.';
+                hasError = true;
+            }
+
+            const password = document.getElementById('password');
+            if (!password.checkValidity()) {
+                document.getElementById('passwordError').textContent = password.validationMessage;
+                hasError = true;
+            }
+
+            const documento = document.getElementById('documento');
+            if (!documento.checkValidity()) {
+                document.getElementById('documentoError').textContent = documento.validationMessage;
+                hasError = true;
+            }
+
+            const tipoDocumento = document.getElementById('tipoDocumento');
+            if (tipoDocumento.value === 'Seleccione') {
+                document.getElementById('tipoDocumentoError').textContent = 'Por favor, seleccione un tipo de documento.';
+                hasError = true;
+            }
+
+            const genero = document.getElementById('genero');
+            if (genero.value === 'Seleccione') {
+                document.getElementById('generoError').textContent = 'Por favor, seleccione un género.';
+                hasError = true;
+            }
+
+            const hobbies = document.querySelector('input[name="hobby"]:checked');
+            if (!hobbies) {
+                document.getElementById('hobbyError').textContent = 'Por favor, seleccione un hobby.';
+                hasError = true;
+            }
+
+            const habilidades = document.querySelectorAll('input[name="habilidades"]:checked');
+            if (habilidades.length === 0) {
+                document.getElementById('habilidadesError').textContent = 'Por favor, seleccione al menos una habilidad.';
+                hasError = true;
+            }
+
+            const numero = document.getElementById('numero');
+            if (!numero.checkValidity()) {
+                document.getElementById('numeroError').textContent = numero.validationMessage;
+                hasError = true;
+            }
+
+           // Si hay errores, prevenir el envío
+           if (hasError) {
+                event.preventDefault();
+            } else {
+                alert('Formulario enviado con éxito');
+            }
+        });
+
+        // Limpiar errores de validación
+        function clearErrors() {
+            document.querySelectorAll('.error').forEach(function(error) {
+                error.textContent = '';
+            });
+        }
+
+        // Deshabilitar el formulario
+        disableButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            inputs.forEach(input => input.disabled = true);
+            selects.forEach(select => select.disabled = true);
+            disableButton.disabled = true;
+            enableButton.disabled = false;
+        });
+
+        // Habilitar el formulario
+        enableButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            inputs.forEach(input => input.disabled = false);
+            selects.forEach(select => select.disabled = false);
+            enableButton.disabled = true;
+            disableButton.disabled = false;
+        });
+         
+        let camposDeshabilitados = false;
+
+        editarButton.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        // Alternar entre habilitar y deshabilitar campos
+        camposDeshabilitados = !camposDeshabilitados;
+
+        nombreInput.disabled = camposDeshabilitados;
+        apellidoInput.disabled = camposDeshabilitados;
+        documentoInput.disabled = camposDeshabilitados;
+
+        // Cambiar el texto del botón según el estado
+        if (camposDeshabilitados) {
+            editarButton.textContent = 'Habilitar Edición';
+        } else {
+            editarButton.textContent = 'Deshabilitar Edición';
+        }
+        });
+        </script>
+</body>
+</html>
